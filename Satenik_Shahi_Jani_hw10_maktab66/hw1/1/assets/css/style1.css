@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  padding: 0%;
+  margin: 0%;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+}
+#app {
+  border: 1px solid black;
+  width: 40%;
+  height: 40vw;
+  font-family: sans-serif;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  box-shadow: 10px 10px 5px grey;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background: #222;
+}
+
+.header > * {
+  color: #eeeeee;
+}
+
+.header__status {
+  padding: 3%;
+  flex-grow: 1;
+  font-size: large;
+  text-align: center;
+}
+.board {
+  display: grid;
+  background: #cccccc;
+  gap: 3%;
+  padding: 3%;
+  flex-grow: 1;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.tile {
+  background: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  color: #222222;
+}
+
+.tile:hover {
+  background: #eeeeee;
+}
+
+.tile--winner {
+  background-color: aquamarine;
+}
+.fill-x {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fill-x::before,
+.fill-x::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 6px;
+  background-color: black;
+}
+
+.fill-x::before {
+  transform: rotate(45deg);
+}
+
+.fill-x::after {
+  transform: rotate(-45deg);
+}
+
+.fill-o {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.fill-o::after {
+  position: absolute;
+  content: "";
+  width: 70%;
+  height: 70%;
+  border: black solid 6px;
+  border-radius: 50%;
+}
+.draw::after{
+  content: "It's a Draw!";
+}
+.win-x{
+  content: "X Wins!";
+}
+.win-o{
+  content: "O Wins!";
+}
