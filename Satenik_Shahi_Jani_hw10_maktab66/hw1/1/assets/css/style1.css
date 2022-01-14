@@ -27,6 +27,7 @@ body {
 
 .header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   background: #222;
 }
@@ -35,8 +36,13 @@ body {
   color: #eeeeee;
 }
 
-.header__status {
+.header__status{
   padding: 3%;
+  flex-grow: 1;
+  font-size: large;
+  text-align: center;
+}
+.status{
   flex-grow: 1;
   font-size: large;
   text-align: center;
@@ -109,9 +115,9 @@ body {
 .draw::after{
   content: "It's a Draw!";
 }
-.win-x{
+.win-x::after{
   content: "X Wins!";
 }
-.win-o{
+.win-o::after{
   content: "O Wins!";
 }

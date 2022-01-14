@@ -60,6 +60,11 @@ function handleResultValidation() {
   if (roundWon) {
     statusDisplay.innerHTML = winningMessage();
     let all = document.getElementsByClassName("tile");
+    if(currentPlayer=="X"){
+      document.querySelector('.status').classList.add('win-x');
+    }else{
+      document.querySelector('.status').classList.add('win-o');
+    }
     for (let i = 0; i < all.length; i++) {
       for (let value of combination) {
         if (value == i) {
@@ -75,6 +80,7 @@ function handleResultValidation() {
   let roundDraw = !gameState.includes("");
   if (roundDraw) {
     statusDisplay.innerHTML = drawMessage();
+    document.querySelector('.status').classList.add('draw');
     gameActive = false;
     return;
   }
@@ -99,11 +105,10 @@ function handleRestartGame() {
   currentPlayer = "X";
   gameState = ["", "", "", "", "", "", "", "", ""];
   statusDisplay.innerHTML = currentPlayerTurn();
+  document.querySelector('.status').classList.remove("draw",'win-x',"win-o");
   document.querySelectorAll(".tile").forEach((tile) => {
     tile.innerHTML = "";
-    tile.classList.replace("tile--winner", "tile");
-    tile.classList.replace("fill-x", "tile");
-    tile.classList.replace("fill-o", "tile");
+    tile.classList.remove("tile--winner","fill-x","fill-o");
   });
 }
 
